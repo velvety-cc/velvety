@@ -18,18 +18,17 @@
 
   .navBar {
     list-style-type: none;
-    flex-direction: row;
-    justify-content: space-between;
-    align-items: center;
     font-size: 1.5rem;
-    padding: 6px 0 7.5px;
+    padding: 6px 0 6px;
     border-top: 1px solid black;
     border-bottom: 1px solid black;
   }
   
   .navItem {
-    width: fit-content;
+    display: inline-block;
     line-height: 1.4;
+    width:50%;
+    text-align: center;
   }
   
   .backToHome {

@@ -15,7 +15,7 @@ export default function Layout({ children, home }) {
 
         <meta
           name="description"
-          content="Velvety is the website of Liam Zhang."
+          content="This is the website of Liam Zhang."
         />
 
         <meta

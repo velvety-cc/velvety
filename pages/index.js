@@ -10,7 +10,7 @@ export default function Home() {
       </Head>
       <section className={utilStyles.headingMd}>
         <h2>
-          Velvety is the website of <b>Liam Zhang</b>.
+          This is the website of <b>Liam Zhang</b>.
         </h2>
         <p>
           I am the co-founder @

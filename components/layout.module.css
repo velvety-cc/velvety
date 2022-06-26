@@ -34,4 +34,13 @@
   .backToHome {
     margin: 3rem 0 0;
   }
-  
+
+  .footer {
+    border-top: 1px solid black;
+    width: 100%;
+    position: fixed;
+    max-width: 584px;
+    bottom:0;
+    text-align: center;
+  }
+ 

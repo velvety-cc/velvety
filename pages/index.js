@@ -13,14 +13,14 @@ export default function Home() {
           This is the website of <b>Liam Zhang</b>.
         </h2>
         <p>
-          I am the co-founder @
+          I am the co-founder at {" "}
           <a href="https://txlabs.org/">TX Labs</a>
-          , building @
+          , building {" "}
           <a href="https://blockless.network">Blockless</a> {" "}
           and @Efficiency DAO.
         </p>
         <p>
-          Previously, I worked at @NGC Ventures focuing on DeFi and Infrastructure investing.
+          Previously, I worked at NGC Ventures focuing on DeFi and Infrastructure investing.
         </p>
       </section>
     </Layout>

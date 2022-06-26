@@ -58,7 +58,6 @@ export default function Layout({ children, home }) {
           </li>
         </ul>
 
-
       </header>
 
       <main>{children}</main>
@@ -70,6 +69,11 @@ export default function Layout({ children, home }) {
           </Link>
         </div>
       )}
+
+      <footer className={styles.footer}>
+        <p> © 2022 Velvety </p>
+      </footer>
+
     </div>
   );
 }

@@ -1,8 +1,9 @@
 import Head from 'next/head';
-import Image from 'next/image';
 import styles from './layout.module.css';
-import utilStyles from '../styles/utils.module.css';
 import Link from 'next/link';
+import Header from './header'
+import Content from './content';
+import Footer from './footer';
 
 const name = 'Velvety';
 export const siteTitle = 'Velvety';
@@ -13,54 +14,30 @@ export default function Layout({ children, home }) {
 
       <Head>
 
-        <meta
-          name="description"
-          content="This is the website of Liam Zhang."
-        />
+        # Primary Meta Tags
+        <title>Velvety</title>
+        <meta name="title" content="Velvety"/>
+        <meta name="description" content="Velvety is Liam Zhang."/>
 
-        <meta
-          property="og:image"
-          content={`https://og-image.vercel.app/${encodeURI(
-            siteTitle,
-          )}.png?theme=light&md=0&fontSize=75px&images=https%3A%2F%2Fassets.vercel.com%2Fimage%2Fupload%2Ffront%2Fassets%2Fdesign%2Fnextjs-black-logo.svg`}
-        />
+        # Open Graph / Facebook
+        <meta property="og:type" content="website"/>
+        <meta property="og:url" content="https://www.velvety.xyz/"/>
+        <meta property="og:title" content="Velvety"/>
+        <meta property="og:description" content="Velvety is Liam Zhang."/>
+        <meta property="og:image" content="https://og-image.vercel.app/Velvety.png?theme=light&md=0&fontSize=75px&images=https%3A%2F%2Fassets.vercel.com%2Fimage%2Fupload%2Ffront%2Fassets%2Fdesign%2Fnextjs-black-logo.svg"/>
 
-        <meta name="og:title" content={siteTitle} />
-
-        <meta name="twitter:card" content="summary_large_image" />
+        # Twitter
+        <meta property="twitter:card" content="summary_large_image"/>
+        <meta property="twitter:url" content="https://www.velvety.xyz/"/>
+        <meta property="twitter:title" content="Velvety"/>
+        <meta property="twitter:description" content="Velvety is Liam Zhang."/>
+        <meta property="twitter:image" content="https://og-image.vercel.app/Velvety.png?theme=light&md=0&fontSize=75px&images=https%3A%2F%2Fassets.vercel.com%2Fimage%2Fupload%2Ffront%2Fassets%2Fdesign%2Fnextjs-black-logo.svg"/>
+        
       </Head>
 
+      <Header></Header>
 
-      <header className={styles.header}>
-
-        <div className={styles.velvetyLogo}>
-          <Image
-            priority="true"
-            src="/velvety-logo.png"
-            alt="Velvety Logo"
-            layout='fixed'
-            width={151}
-            height={51.31}
-          />
-        </div>
-
-
-        <ul className={styles.navBar}>
-          <li className={styles.navItem}>
-            <Link href="/">
-                <a>About</a>
-              </Link>
-          </li>
-          <li className={styles.navItem}>
-            <Link href="/writing-table-of-contents">
-              <a>Writing</a>
-            </Link>
-          </li>
-        </ul>
-
-      </header>
-
-      <main>{children}</main>
+      <Content>{children}</Content>
 
       {!home && (
         <div className={styles.backToHome}>
@@ -70,9 +47,7 @@ export default function Layout({ children, home }) {
         </div>
       )}
 
-      <footer className={styles.footer}>
-        <p> © 2022 Velvety </p>
-      </footer>
+      <Footer></Footer>
 
     </div>
   );

@@ -1,0 +1,29 @@
+.footer {
+    display: grid;
+    line-height: normal;
+    margin-bottom: 4vh;
+}
+
+.velvetyLogo:hover {
+    cursor: pointer;
+}
+
+.logo {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+}
+
+.velvetyLogo {
+    font-family: 'helvetica_neue_medium';
+    grid-column: 1/3;
+    text-align: center;
+    font-size: 64px;
+}
+
+.copyRight {
+    position: relative;
+    grid-column: 2/3;
+    top: -23.5pt;
+    right: -101pt;
+    font-size: 16px;
+}

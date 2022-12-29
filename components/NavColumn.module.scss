@@ -1,0 +1,8 @@
+@use '../styles/list.scss';
+
+.navItems {
+    @include list.list-reset;
+    display: grid;
+    grid-template-columns: 1fr;
+    grid-gap: 28px;
+}

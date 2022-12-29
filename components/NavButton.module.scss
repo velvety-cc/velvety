@@ -2,6 +2,8 @@
 @use '../styles/font.scss';
 
 .navButton {
+    width: fit-content;
+
     .navLinks {
         text-decoration: none;
         @include font.h2-font;

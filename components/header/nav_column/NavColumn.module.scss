@@ -1,4 +1,4 @@
-@use '../styles/list.scss';
+@use '../../../styles/list.scss';
 
 .navItems {
     @include list.list-reset;

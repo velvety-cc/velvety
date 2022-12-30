@@ -2,8 +2,7 @@
 
 import { Inter } from '@next/font/google';
 import './global.scss';
-import Header from '../components/header';
-import NavColumn from '../components/NavColumn';
+import Header from '../components/header/Header';
 
 const inter = Inter({ subsets: ['latin'] });
 
@@ -13,7 +12,7 @@ function RootLayout({ children }: { children: React.ReactNode }) {
             <body>
                 <div className='mainContainer'>
                     <div className='content'>
-                        <NavColumn></NavColumn>
+                        <Header></Header>
                         <main>{children}</main>
                     </div>
                 </div>

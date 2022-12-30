@@ -32,6 +32,7 @@ export default function NavButton(props) {
                 );
         }
     }
+
     return (
         <li className={styles.navButton} onClick={props.onClick}>
             {renderNavButton(props.clicked)}

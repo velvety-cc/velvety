@@ -4,11 +4,9 @@
     display: grid;
     grid-template-columns: repeat(6, 1fr);
     grid-column-gap: 64px;
-    grid-template-areas: 'logo logo logo logo nav nav';
 }
 
 .logoButton {
-    display: block;
     grid-column: 1 / 5;
 }
 

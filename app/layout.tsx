@@ -3,6 +3,7 @@
 import { Inter } from '@next/font/google';
 import './global.scss';
 import Header from '../components/header/Header';
+import { AnalyticsWrapper } from './components/analytics';
 
 const inter = Inter({ subsets: ['latin'] });
 
@@ -14,6 +15,7 @@ function RootLayout({ children }: { children: React.ReactNode }) {
                     <div className='content'>
                         <Header></Header>
                         <main>{children}</main>
+                        <AnalyticsWrapper />
                     </div>
                 </div>
             </body>

@@ -7,11 +7,11 @@ import Link from 'next/link';
     props.onClick
 */
 export default function NavButton(props) {
-    function renderNavButton(isClicked: string) {
-        switch (isClicked) {
-            case 'true':
+    function renderNavButton(clicked: boolean) {
+        switch (clicked) {
+            case true:
                 return (
-                    <div>
+                    <div onClick={props.onClick}>
                         <Link
                             href={props.route}
                             className={styles.navLinksClicked}
@@ -21,9 +21,9 @@ export default function NavButton(props) {
                         <div className={styles.dividerClicked}></div>
                     </div>
                 );
-            case 'false':
+            case false:
                 return (
-                    <div>
+                    <div onClick={props.onClick}>
                         <Link href={props.route} className={styles.navLinks}>
                             {props.routeName}
                         </Link>
@@ -33,9 +33,20 @@ export default function NavButton(props) {
         }
     }
 
+    /*
+    function renderNavButton() {
+        return (
+            <div onClick={props.onClick}>
+                <Link href={props.route} className={styles.navLinks}>
+                    {props.routeName}
+                </Link>
+                <div className={styles.divider}></div>
+            </div>
+        );
+    }
+*/
+
     return (
-        <li className={styles.navButton} onClick={props.onClick}>
-            {renderNavButton(props.clicked)}
-        </li>
+        <li className={styles.navButton}>{renderNavButton(props.clicked)}</li>
     );
 }

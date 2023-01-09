@@ -1,7 +1,7 @@
 'use client';
 
 import styles from './Header.module.scss';
-import NavColumn from './nav_column/NavColumn';
+import NavButton from './nav_button/NavButton';
 import Logo from './logo/Logo';
 import { useState } from 'react';
 
@@ -12,42 +12,73 @@ export default function Header() {
     // function to set new route onClick, passed to children components
     function setNewRoute(newRoute: string) {
         setRoute(() => newRoute);
+        console.log('new state set: ' + newRoute);
+    }
+
+    // render a nav button given the name of the button and whether it's clicked
+    function renderNavButton(buttonName: string, clicked = false) {
+        const route = '/' + buttonName;
+        const routeName =
+            buttonName.charAt(0).toUpperCase() + buttonName.substring(1);
+        return (
+            <NavButton
+                route={route}
+                routeName={routeName}
+                onClick={() => setNewRoute(buttonName)}
+                clicked={clicked}
+            ></NavButton>
+        );
+    }
+
+    //render the navigation
+    function renderNavigation(route) {
+        switch (route) {
+            case 'home':
+                return (
+                    <ul className={styles.navItems}>
+                        {renderNavButton('about')}
+                        {renderNavButton('writings')}
+                        {renderNavButton('archive')}
+                    </ul>
+                );
+            case 'about':
+                return (
+                    <ul className={styles.navItems}>
+                        {renderNavButton('about', true)}
+                        {renderNavButton('writings')}
+                        {renderNavButton('archive')}
+                    </ul>
+                );
+            case 'writings':
+                return (
+                    <ul className={styles.navItems}>
+                        {renderNavButton('about')}
+                        {renderNavButton('writings', true)}
+                        {renderNavButton('archive')}
+                    </ul>
+                );
+            case 'archive':
+                return (
+                    <ul className={styles.navItems}>
+                        {renderNavButton('about')}
+                        {renderNavButton('writings')}
+                        {renderNavButton('archive', true)}
+                    </ul>
+                );
+        }
     }
 
     // return a correct Header component based on the route
     function headerContent(route) {
         return (
             <header className={styles.header}>
-                <Logo
-                    className={styles.logoButton}
-                    onClick={() => setNewRoute('home')}
-                ></Logo>
-                <NavColumn
-                    className={styles.navColumn}
-                    route={route}
-                    setNewRoute={() => setNewRoute(route)}
-                ></NavColumn>
+                <div className={styles.logoButton}>
+                    <Logo onClick={() => setNewRoute('home')}></Logo>
+                </div>
+                {renderNavigation(route)}
             </header>
         );
     }
 
-    // determine the correct Header component
-    function renderHeader(route: string) {
-        switch (route) {
-            case 'home':
-                const homeHeader = headerContent(route);
-                return homeHeader;
-            case 'about':
-                const aboutHeader = headerContent(route);
-                return aboutHeader;
-            case 'writings':
-                const writingsHeader = headerContent(route);
-                return writingsHeader;
-            case 'archive':
-                const archiveHeader = headerContent(route);
-                return archiveHeader;
-        }
-    }
-
-    return <div>{renderHeader(route)}</div>;
+    return <div>{headerContent(route)}</div>;
 }

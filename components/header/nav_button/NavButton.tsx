@@ -33,19 +33,6 @@ export default function NavButton(props) {
         }
     }
 
-    /*
-    function renderNavButton() {
-        return (
-            <div onClick={props.onClick}>
-                <Link href={props.route} className={styles.navLinks}>
-                    {props.routeName}
-                </Link>
-                <div className={styles.divider}></div>
-            </div>
-        );
-    }
-*/
-
     return (
         <li className={styles.navButton}>{renderNavButton(props.clicked)}</li>
     );

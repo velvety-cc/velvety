@@ -12,7 +12,6 @@ export default function Header() {
     // function to set new route onClick, passed to children components
     function setNewRoute(newRoute: string) {
         setRoute(() => newRoute);
-        console.log('new state set: ' + newRoute);
     }
 
     // render a nav button given the name of the button and whether it's clicked

@@ -1,6 +1,6 @@
 @mixin body-font {
     font-size: 16px;
-    font-weight: 400;
+    font-weight: 300;
     font-style: normal;
     @include body-line-height;
 }
@@ -13,7 +13,7 @@
 
 @mixin h2-font {
     font-size: 1.5rem;
-    font-weight: 500;
+    font-weight: 450;
     font-style: normal;
 }
 

@@ -23,6 +23,7 @@ body {
     background-color: white;
     margin: 0 auto;
     padding: 64px 64px;
+    overflow: auto;
     height: 100%;
 }
 
@@ -30,4 +31,8 @@ body {
     max-width: 1088px;
     margin: 0 auto;
     height: 100%;
+}
+
+.mainContainer > :last-child {
+    margin-bottom: 64px;
 }

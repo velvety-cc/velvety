@@ -1,7 +1,7 @@
 import styles from './about.module.scss';
 import Link from 'next/link';
 
-function About() {
+export default function About() {
     function renderExternalLink() {
         return (
             <div className={styles.externalLinks}>
@@ -106,5 +106,3 @@ function About() {
         </div>
     );
 }
-
-export default About;

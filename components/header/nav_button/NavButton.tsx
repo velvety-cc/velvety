@@ -4,14 +4,13 @@ import Link from 'next/link';
 /*
     props.route:
     props.routeName
-    props.onClick
 */
 export default function NavButton(props) {
     function renderNavButton(clicked: boolean) {
         switch (clicked) {
             case true:
                 return (
-                    <div onClick={props.onClick}>
+                    <div>
                         <Link
                             href={props.route}
                             className={styles.navLinksClicked}
@@ -23,7 +22,7 @@ export default function NavButton(props) {
                 );
             case false:
                 return (
-                    <div onClick={props.onClick}>
+                    <div>
                         <Link href={props.route} className={styles.navLinks}>
                             {props.routeName}
                         </Link>

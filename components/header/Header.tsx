@@ -3,17 +3,9 @@
 import styles from './Header.module.scss';
 import NavButton from './nav_button/NavButton';
 import Logo from './logo/Logo';
-import { useState } from 'react';
+import { usePathname } from 'next/navigation';
 
 export default function Header() {
-    // define route state: ['home', 'about', 'writings', 'archive']
-    const [route, setRoute] = useState('home');
-
-    // function to set new route onClick, passed to children components
-    function setNewRoute(newRoute: string) {
-        setRoute(() => newRoute);
-    }
-
     // render a nav button given the name of the button and whether it's clicked
     function renderNavButton(buttonName: string, clicked = false) {
         const route = '/' + buttonName;
@@ -23,7 +15,6 @@ export default function Header() {
             <NavButton
                 route={route}
                 routeName={routeName}
-                onClick={() => setNewRoute(buttonName)}
                 clicked={clicked}
             ></NavButton>
         );
@@ -32,7 +23,7 @@ export default function Header() {
     //render the navigation
     function renderNavigation(route) {
         switch (route) {
-            case 'home':
+            case '/':
                 return (
                     <ul className={styles.navItems}>
                         {renderNavButton('about')}
@@ -40,7 +31,7 @@ export default function Header() {
                         {renderNavButton('archive')}
                     </ul>
                 );
-            case 'about':
+            case '/about':
                 return (
                     <ul className={styles.navItems}>
                         {renderNavButton('about', true)}
@@ -48,7 +39,7 @@ export default function Header() {
                         {renderNavButton('archive')}
                     </ul>
                 );
-            case 'writings':
+            case '/writings':
                 return (
                     <ul className={styles.navItems}>
                         {renderNavButton('about')}
@@ -56,7 +47,7 @@ export default function Header() {
                         {renderNavButton('archive')}
                     </ul>
                 );
-            case 'archive':
+            case '/archive':
                 return (
                     <ul className={styles.navItems}>
                         {renderNavButton('about')}
@@ -72,12 +63,25 @@ export default function Header() {
         return (
             <header className={styles.header}>
                 <div className={styles.logoButton}>
-                    <Logo onClick={() => setNewRoute('home')}></Logo>
+                    <Logo></Logo>
                 </div>
                 {renderNavigation(route)}
             </header>
         );
     }
 
-    return <div>{headerContent(route)}</div>;
+    function getPathName() {
+        const rawPathName = usePathname();
+        if (rawPathName.includes('/about')) {
+            return '/about';
+        } else if (rawPathName.includes('/writings')) {
+            return '/writings';
+        } else if (rawPathName.includes('/archive')) {
+            return '/archive';
+        } else {
+            return '/';
+        }
+    }
+
+    return <div>{headerContent(getPathName())}</div>;
 }

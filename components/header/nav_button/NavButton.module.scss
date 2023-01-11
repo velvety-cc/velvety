@@ -3,7 +3,7 @@
 
 .navButton {
     width: fit-content;
-    cursor: pointer;
+    //cursor: pointer;
 
     .navLinks {
         text-decoration: none;
@@ -35,6 +35,8 @@
     }
 
     &:hover {
+        cursor: url('../../../public/cursor-hover.svg'), auto;
+
         .navLinks {
             color: color.$black;
         }

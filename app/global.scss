@@ -18,6 +18,15 @@ body {
     ::-moz-selection {
         background: color.$light-gray; /* Gecko Browsers */
     }
+    cursor: url('../public/cursor.svg'), auto;
+
+    Link:hover {
+        cursor: url('../public/cursor-hover.png'), auto;
+    }
+
+    a:hover {
+        cursor: url('../public/cursor-hover.svg'), auto;
+    }
 }
 
 body {

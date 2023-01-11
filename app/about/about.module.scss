@@ -28,6 +28,10 @@
         display: flex;
         flex-direction: column;
 
+        .linkInline {
+            @include font.link-style;
+        }
+
         .aboutVelvety {
             margin-bottom: 64px;
 

@@ -12,6 +12,12 @@ body {
     height: 100%;
     scroll-behavior: smooth;
     @include font.body-font;
+    ::selection {
+        background: color.$light-gray; /* WebKit/Blink Browsers */
+    }
+    ::-moz-selection {
+        background: color.$light-gray; /* Gecko Browsers */
+    }
 }
 
 body {
@@ -31,8 +37,4 @@ body {
     max-width: 1088px;
     margin: 0 auto;
     height: 100%;
-}
-
-.mainContainer > :last-child {
-    margin-bottom: 64px;
 }

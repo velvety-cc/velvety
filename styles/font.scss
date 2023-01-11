@@ -1,8 +1,21 @@
+@use './color.scss';
+
 @mixin body-font {
     font-size: 16px;
     font-weight: 300;
     font-style: normal;
     @include body-line-height;
+}
+
+@mixin link-style {
+    @include body-font;
+    color: color.$black;
+    text-decoration: 0.1rem underline color.$gray;
+    text-underline-offset: 0.2rem;
+
+    &:hover {
+        text-decoration: underline color.$black;
+    }
 }
 
 @mixin h1-font {

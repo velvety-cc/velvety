@@ -72,14 +72,27 @@ export default function About() {
                     <div className={styles.title}>About Liam</div>
                     <p className={styles.paragraph}>
                         On a daily basis, I am the co-founder and head of
-                        product at Blockless, a decentralized computing and
-                        developer platform.
+                        product at{' '}
+                        <Link
+                            href='http://blockless.network'
+                            target='_blank'
+                            className={styles.linkInline}
+                        >
+                            Blockless
+                        </Link>
+                        , a decentralized computing and developer platform.
                     </p>
                     <p className={styles.paragraph}>
                         Previously, my work spans financial research, investment
                         banking, and private equity and venture capital
-                        investing. Take a look at my resume if you are
-                        interested.
+                        investing. Take a look at my{' '}
+                        <Link
+                            href='/about/resume'
+                            className={styles.linkInline}
+                        >
+                            resume
+                        </Link>{' '}
+                        if you are interested.
                     </p>
                     <p className={styles.paragraph}>
                         Heavily concentrated in finance early in my career, I

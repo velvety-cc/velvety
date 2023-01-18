@@ -1,0 +1,32 @@
+@use '../../styles/font.scss';
+@use '../../styles/color.scss';
+
+.yearContainer {
+    .lineBreak {
+        background-color: color.$black;
+        height: 2px;
+    }
+
+    .year {
+        @include font.h2-font;
+        display: block;
+        height: 3rem;
+        margin-top: 1.5rem;
+        margin-bottom: 1.5rem;
+    }
+
+    .entriesContainer {
+        display: grid;
+        grid-template-columns: repeat(6, 1fr);
+        grid-auto-rows: minmax(min-content, auto);
+        grid-column-gap: 4rem;
+        grid-row-gap: 2.5rem;
+        margin-bottom: 64px;
+    }
+
+    .buttonGridContainer {
+        grid-column: span 2;
+        margin: 0;
+        padding: 0;
+    }
+}

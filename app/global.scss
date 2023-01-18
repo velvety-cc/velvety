@@ -21,7 +21,7 @@ body {
     cursor: url('../public/cursor.svg'), auto;
 
     Link:hover {
-        cursor: url('../public/cursor-hover.png'), auto;
+        cursor: url('../public/cursor-hover.svg'), auto;
     }
 
     a:hover {
@@ -31,19 +31,20 @@ body {
 
 body {
     background-color: color.$bg;
+    overflow: scroll;
 }
 
 .mainContainer {
     max-width: 1472px;
     background-color: white;
     margin: 0 auto;
-    padding: 64px 64px;
-    overflow: auto;
-    height: 100%;
+    padding: 64px 0 64px;
+    height: auto;
 }
 
 .content {
+    box-sizing: border-box;
     max-width: 1088px;
     margin: 0 auto;
-    height: 100%;
+    height: auto;
 }

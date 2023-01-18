@@ -7,7 +7,11 @@ import { AnalyticsWrapper } from './components/analytics';
 
 const inter = Inter({ subsets: ['latin'] });
 
-function RootLayout({ children }: { children: React.ReactNode }) {
+export default function RootLayout({
+    children,
+}: {
+    children: React.ReactNode;
+}) {
     return (
         <html lang='en' className={inter.className}>
             <body>
@@ -22,5 +26,3 @@ function RootLayout({ children }: { children: React.ReactNode }) {
         </html>
     );
 }
-
-export default RootLayout;

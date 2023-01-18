@@ -1,6 +1,6 @@
 import DefaultHeadTags from './DefaultHeadTags';
 
-function Head() {
+export default function Head() {
     return (
         <>
             <DefaultHeadTags></DefaultHeadTags>
@@ -8,5 +8,3 @@ function Head() {
         </>
     );
 }
-
-export default Head;

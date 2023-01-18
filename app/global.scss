@@ -31,7 +31,6 @@ body {
 
 body {
     background-color: color.$bg;
-    overflow: scroll;
 }
 
 .mainContainer {
@@ -39,7 +38,9 @@ body {
     background-color: white;
     margin: 0 auto;
     padding: 64px 0 64px;
-    height: auto;
+    height: 100%;
+    z-index: 0;
+    overflow: scroll;
 }
 
 .content {

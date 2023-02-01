@@ -1,10 +1,11 @@
 import Link from 'next/link';
+import classes from './resume.module.scss';
 
 export default function Resume() {
     return (
         <div>
             <Link href='/about'>Back</Link>
-            <div>Resume</div>
+            <div className={classes.h3Title}>Resume</div>
             <div>Education</div>
             <div>
                 <span>New York University</span>

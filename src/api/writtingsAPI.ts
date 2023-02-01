@@ -3,7 +3,7 @@ import fs from 'fs';
 import matter from 'gray-matter';
 import { sync } from 'glob';
 
-const writtingsFolderPath = path.join(process.cwd(), 'writings');
+const writtingsFolderPath = path.join(process.cwd(), 'content/writings');
 
 interface post {
     frontMatter: postFrontMatter;

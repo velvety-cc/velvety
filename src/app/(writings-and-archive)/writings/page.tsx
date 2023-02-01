@@ -1,6 +1,6 @@
-import { getYearArray } from '../../../src/api/writtingsAPI';
-import Header from '../../../components/header/Header';
-import YearGroup from '../../../components/group/YearGroup';
+import { getYearArray } from '../../../api/writtingsAPI';
+import Header from '../../../components/shared/header/Header';
+import YearGroup from '../../../components/shared/group/YearGroup';
 import styles from './writings.module.scss';
 
 export default function Writings() {

@@ -1,5 +1,5 @@
 import styles from './YearGroup.module.scss';
-import { getPostByYear } from '../../src/api/writtingsAPI';
+import { getPostByYear } from '../../../api/writtingsAPI';
 import WritingEntryButton from '../writings/WrittingEntryButton';
 
 export default function YearGroup(props) {

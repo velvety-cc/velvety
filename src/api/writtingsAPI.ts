@@ -53,6 +53,7 @@ export function getAllPosts() {
 }
 
 export function sortPostByDate(postArray) {
+    // decending order, newest post at the top
     return postArray.sort((a, b) => {
         if (new Date(a.frontMatter.date) > new Date(b.frontMatter.date))
             return -1;
@@ -70,15 +71,6 @@ export function getPostByYear(year) {
         const postYear = new Date(post.frontMatter.date).getFullYear();
         return postYear === year;
     });
-    /*
-    const yearPostSorted = yearPost.sort((a, b) => {
-        if (new Date(a.frontMatter.date) > new Date(b.frontMatter.date))
-            return 1;
-        if (new Date(a.frontMatter.date) < new Date(b.frontMatter.date))
-            return 0;
-        return 0;
-    });
-    */
 
     return yearPost;
 }

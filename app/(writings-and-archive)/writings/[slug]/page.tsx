@@ -1,3 +1,3 @@
 export default function WritingEntry() {
-    return <div></div>;
+    return <div>Title</div>;
 }

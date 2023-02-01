@@ -1,5 +1,6 @@
-import { getYearArray } from '../../src/api/writtingsAPI';
-import YearGroup from '../../components/group/YearGroup';
+import { getYearArray } from '../../../src/api/writtingsAPI';
+import Header from '../../../components/header/Header';
+import YearGroup from '../../../components/group/YearGroup';
 import styles from './writings.module.scss';
 
 export default function Writings() {
@@ -7,6 +8,7 @@ export default function Writings() {
 
     return (
         <div>
+            <Header></Header>
             <div className={styles.writings}>
                 {yearArray.map((year) => (
                     <YearGroup key={year} year={year}></YearGroup>

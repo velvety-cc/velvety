@@ -17,7 +17,7 @@ export default function YearGroup(props) {
                     >
                         <WritingEntryButton
                             key={post.frontMatter.slug}
-                            link='/'
+                            link={`/writings/${post.frontMatter.slug}`}
                             title={post.frontMatter.title}
                             date={post.frontMatter.date}
                             description={post.frontMatter.description}

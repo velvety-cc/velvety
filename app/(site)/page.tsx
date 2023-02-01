@@ -8,7 +8,7 @@ function Page() {
                 <div className={styles.title}>Biography</div>
                 <div className={styles.description}>
                     <p className={styles.paragraph}>
-                        Liam Zhang is the co-founder and head of product of{' '}
+                        Liam Zhang is the head of product and technology of{' '}
                         <Link
                             href='http://blockless.network'
                             target='_blank'

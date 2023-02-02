@@ -1,6 +1,6 @@
-import styles from './YearGroup.module.scss';
+import styles from './year-group.module.scss';
 import { getPostByYear } from '../../../api/writtingsAPI';
-import WritingEntryButton from '../entry-button/WrittingEntryButton';
+import WritingEntryButton from '../entry-button/writting-entry-button';
 
 export default function YearGroup(props) {
     const posts = getPostByYear(props.year);

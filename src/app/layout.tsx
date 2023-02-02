@@ -2,7 +2,7 @@
 
 import { Inter } from '@next/font/google';
 import './global.scss';
-import Header from '../components/shared/header/Header';
+import Header from '../components/shared/header/header';
 import { AnalyticsWrapper } from '../components/shared/analytics';
 
 const inter = Inter({ subsets: ['latin'] });
@@ -15,7 +15,7 @@ export default function RootLayout({
     return (
         <html lang='en' className={inter.className}>
             <body>
-                <div className='mainContainer'>
+                <div className='backdrop'>
                     <div className='content'>
                         <Header></Header>
                         <main>{children}</main>

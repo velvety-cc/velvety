@@ -1,4 +1,4 @@
-import styles from './NavButton.module.scss';
+import styles from './nav-button.module.scss';
 import Link from 'next/link';
 
 /*

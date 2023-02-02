@@ -1,4 +1,4 @@
-import styles from './Logo.module.scss';
+import styles from './logo.module.scss';
 import Link from 'next/link';
 
 export default function Logo() {

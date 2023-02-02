@@ -1,8 +1,8 @@
 'use client';
 
 import styles from './Header.module.scss';
-import NavButton from '../nav-button/NavButton';
-import Logo from '../logo/Logo';
+import NavButton from '../nav-button/nav-button';
+import Logo from '../logo/logo';
 import { usePathname } from 'next/navigation';
 
 export default function Header() {

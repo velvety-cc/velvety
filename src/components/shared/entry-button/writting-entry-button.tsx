@@ -1,5 +1,5 @@
 import Link from 'next/link';
-import styles from './WrittingEntryButton.module.scss';
+import styles from './writting-entry-button.module.scss';
 
 export default function WritingEntryButton(props) {
     return (

@@ -1,0 +1,13 @@
+.externalLinks {
+    grid-column: 5 / -1;
+
+    .unorderedList {
+        @include list.list-reset;
+        margin-block-start: 1.5rem;
+        margin-block-end: 0;
+
+        .linkList {
+            margin-top: 0.18rem;
+        }
+    }
+}

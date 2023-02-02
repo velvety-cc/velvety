@@ -1,4 +1,4 @@
-import DefaultHeadTags from '../components/shared/seo/DefaultHeadTags';
+import DefaultHeadTags from '../components/shared/seo/default-head-tags';
 
 export default function Head() {
     return (

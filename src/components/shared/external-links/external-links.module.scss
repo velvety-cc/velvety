@@ -1,5 +1,13 @@
+@use '../../../styles/font.scss';
+@use '../../../styles/list.scss';
+@use '../../../styles/color.scss';
+
 .externalLinks {
-    grid-column: 5 / -1;
+    // grid-column: 5 / -1;
+
+    .title {
+        @include font.h2-font;
+    }
 
     .unorderedList {
         @include list.list-reset;
@@ -8,6 +16,16 @@
 
         .linkList {
             margin-top: 0.18rem;
+
+            &:first-child {
+                margin-top: 0;
+            }
+
+            .link {
+                text-decoration: none;
+                @include font.body-font;
+                color: color.$black;
+            }
         }
     }
 }

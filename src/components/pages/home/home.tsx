@@ -1,5 +1,6 @@
 import styles from './home.module.scss';
 import Link from 'next/link';
+import ExternalLinks from '../../shared/external-links/external-links';
 
 export default function Home() {
     return (
@@ -36,6 +37,9 @@ export default function Home() {
                         engineering, finance, and product management.
                     </p>
                 </div>
+            </div>
+            <div className={styles.ExternalLinks}>
+                <ExternalLinks></ExternalLinks>
             </div>
         </div>
     );

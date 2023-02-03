@@ -1,6 +1,7 @@
 'use client';
+//test
 
-import styles from './Header.module.scss';
+import styles from './header.module.scss';
 import NavButton from '../nav-button/nav-button';
 import Logo from '../logo/logo';
 import { usePathname } from 'next/navigation';

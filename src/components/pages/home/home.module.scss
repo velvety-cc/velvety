@@ -2,31 +2,21 @@
 @use '../../../styles/color.scss';
 @use '../../../styles/list.scss';
 
-.homeContainer {
-    display: grid;
-    grid-template-columns: repeat(6, 1fr);
-    grid-column-gap: 64px;
+.biography {
+    //grid-column: 1 / 5;
+    margin-bottom: 64px;
 
-    .biography {
-        grid-column: 1 / 5;
-        margin-bottom: 64px;
-
-        .title {
-            @include font.h2-font;
-        }
-
-        .link {
-            @include font.link-style;
-        }
-
-        .paragraph {
-            margin-block-start: 1.5rem;
-            margin-block-end: 0;
-            padding: 0;
-        }
+    .title {
+        @include font.h2-font;
     }
 
-    .ExternalLinks {
-        grid-column: 5 / -1;
+    .link {
+        @include font.link-style;
+    }
+
+    .paragraph {
+        margin-block-start: 1.5rem;
+        margin-block-end: 0;
+        padding: 0;
     }
 }

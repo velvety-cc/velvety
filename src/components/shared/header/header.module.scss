@@ -1,0 +1,24 @@
+@use '../../../styles/list.scss';
+
+.header {
+    padding-top: 176px;
+    margin-bottom: 64px;
+    display: grid;
+    grid-template-columns: repeat(6, 1fr);
+    grid-column-gap: 64px;
+}
+
+.navItems {
+    @include list.list-reset;
+    display: grid;
+    grid-template-columns: 1fr;
+    grid-gap: 28px;
+}
+
+.logoButton {
+    grid-column: 1 / 5;
+}
+
+.navColumn {
+    grid-column: 5 / -1;
+}

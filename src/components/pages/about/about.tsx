@@ -1,6 +1,6 @@
 import styles from './about.module.scss';
 import Link from 'next/link';
-import GridWithExternalLinks from '../../shared/layout/grid-with-external-links';
+import GridWithExternalLinks from '../../shared/layout/grid-with-external-links/grid-with-external-links';
 
 export default function About() {
     return (

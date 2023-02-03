@@ -1,4 +1,4 @@
-import GridWithExternalLinks from '../../shared/layout/grid-with-external-links';
+import GridWithExternalLinks from '../../shared/layout/grid-with-external-links/grid-with-external-links';
 import Link from 'next/link';
 import styles from './resume.module.scss';
 import Image from 'next/image';

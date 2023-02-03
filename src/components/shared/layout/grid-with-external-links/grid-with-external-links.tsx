@@ -1,5 +1,5 @@
-import Header from '../header/header';
-import ExternalLinks from '../external-links/external-links';
+import Header from '../../header/header';
+import ExternalLinks from '../../external-links/external-links';
 import styles from './grid-with-external-links.module.scss';
 
 export default function GridWithExternalLinks({ children }) {

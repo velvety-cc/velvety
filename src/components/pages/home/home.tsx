@@ -1,7 +1,7 @@
 import styles from './home.module.scss';
 import Link from 'next/link';
 import Header from '../../shared/header/header';
-import GridWithExternalLinks from '../../shared/layout/grid-with-external-links';
+import GridWithExternalLinks from '../../shared/layout/grid-with-external-links/grid-with-external-links';
 
 export default function Home() {
     return (

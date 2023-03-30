@@ -10,15 +10,4 @@ const nextConfig = {
     reactStrictMode: true,
 };
 
-const withMDX = require('@next/mdx')({
-    extension: /\.mdx?$/,
-    options: {
-        remarkPlugins: [],
-        rehypePlugins: [],
-    },
-});
-
-//module.exports = nextConfig;
-
-// Merge MDX config with Next.js config
-module.exports = withMDX(nextConfig);
+module.exports = nextConfig;

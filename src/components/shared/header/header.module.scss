@@ -1,11 +1,22 @@
 @use '../../../styles/list.scss';
 
 .header {
-    padding-top: 176px;
-    margin-bottom: 64px;
     display: grid;
-    grid-template-columns: repeat(6, 1fr);
+    grid-template-columns: repeat(3, minmax(100px, 1fr));
     grid-column-gap: 64px;
+    width: 100%;
+}
+
+.mobileHeaderWrapper {
+    grid-column: 1 / span 2;
+
+    .menuButton {
+        display: none;
+    }
+}
+
+.navWrapper {
+    grid-column: 3 / span 1;
 }
 
 .navItems {
@@ -15,10 +26,47 @@
     grid-gap: 28px;
 }
 
-.logoButton {
-    grid-column: 1 / 5;
+@media screen and (max-width: 1199px) {
+    .header {
+        grid-column-gap: 32px;
+    }
 }
 
-.navColumn {
-    grid-column: 5 / -1;
+@media screen and (max-width: 619px) {
+    .header {
+        display: flex;
+        flex-direction: column;
+        //row-gap: 48px;
+        flex-basis: 0;
+        flex-grow: 1;
+    }
+
+    .mobileHeaderWrapper {
+        display: flex;
+        justify-content: space-between;
+        align-items: flex-start;
+
+        .menuButton {
+            display: inline-block;
+        }
+    }
+
+    .navWrapper {
+        opacity: 0;
+        visibility: hidden;
+        height: 0;
+        overflow: hidden;
+
+        transform: translateY(-48px);
+        transition: all 0.4s ease-in-out;
+    }
+
+    .navWrapperOpened {
+        opacity: 1;
+        visibility: visible;
+        height: auto;
+
+        transform: translateY(48px);
+        //transition: all 0.4s ease-in-out;
+    }
 }

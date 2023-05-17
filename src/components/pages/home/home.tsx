@@ -3,9 +3,17 @@ import Link from 'next/link';
 import Header from '../../shared/header/header';
 import GridWithExternalLinks from '../../shared/layout/grid-with-external-links/grid-with-external-links';
 
+/*
+
+*/
+
 export default function Home() {
     return (
-        <GridWithExternalLinks>
+        <div className={styles.contentWrapper}>
+            <div className={styles.headerWrapper}>
+                <Header></Header>
+            </div>
+
             <div className={styles.homeContainer}>
                 <div className={styles.biography}>
                     <div className={styles.title}>Biography</div>
@@ -42,6 +50,6 @@ export default function Home() {
                     </div>
                 </div>
             </div>
-        </GridWithExternalLinks>
+        </div>
     );
 }

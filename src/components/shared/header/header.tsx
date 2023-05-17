@@ -1,10 +1,11 @@
 'use client';
-//test
 
 import styles from './header.module.scss';
-import NavButton from '../nav-button/nav-button';
+import NavButton from '../navigation/nav-button';
 import Logo from '../logo/logo';
+import MenuButton from '../navigation/menu-button';
 import { usePathname } from 'next/navigation';
+import { useState } from 'react';
 
 export default function Header() {
     // render a nav button given the name of the button and whether it's clicked
@@ -26,7 +27,7 @@ export default function Header() {
         switch (route) {
             case '/':
                 return (
-                    <ul className={styles.navItems}>
+                    <ul className='grid list-none grid-cols-1 gap-y-7'>
                         {renderNavButton('about')}
                         {renderNavButton('writings')}
                         {renderNavButton('archive')}
@@ -34,7 +35,7 @@ export default function Header() {
                 );
             case '/about':
                 return (
-                    <ul className={styles.navItems}>
+                    <ul className='grid list-none grid-cols-1 gap-y-7'>
                         {renderNavButton('about', true)}
                         {renderNavButton('writings')}
                         {renderNavButton('archive')}
@@ -42,7 +43,7 @@ export default function Header() {
                 );
             case '/writings':
                 return (
-                    <ul className={styles.navItems}>
+                    <ul className='grid list-none grid-cols-1 gap-y-7'>
                         {renderNavButton('about')}
                         {renderNavButton('writings', true)}
                         {renderNavButton('archive')}
@@ -50,25 +51,13 @@ export default function Header() {
                 );
             case '/archive':
                 return (
-                    <ul className={styles.navItems}>
+                    <ul className='grid list-none grid-cols-1 gap-y-7'>
                         {renderNavButton('about')}
                         {renderNavButton('writings')}
                         {renderNavButton('archive', true)}
                     </ul>
                 );
         }
-    }
-
-    // return a correct Header component based on the route
-    function headerContent(route) {
-        return (
-            <header className={styles.header}>
-                <div className={styles.logoButton}>
-                    <Logo></Logo>
-                </div>
-                {renderNavigation(route)}
-            </header>
-        );
     }
 
     function getPathName() {
@@ -82,6 +71,52 @@ export default function Header() {
         } else {
             return '/';
         }
+    }
+
+    const [isMenuOpen, setIsMenuOpen] = useState(false);
+
+    const toggleMenu = () => {
+        setIsMenuOpen(!isMenuOpen);
+    };
+
+    // return a correct Header component based on the route
+    function headerContent(route) {
+        return (
+            <header>
+                {/* Desktop header */}
+                <section className='hidden sm:grid sm:w-full sm:grid-cols-3 md:gap-x-8 lg:gap-x-16'>
+                    <Logo></Logo>
+                    <div className='col-span-1 col-start-3'>
+                        {renderNavigation(route)}
+                    </div>
+                </section>
+
+                {/* Mobile header */}
+                <section className='flex sm:hidden'>
+                    {/* Nav bar */}
+                    <div className='flex w-full flex-row items-center justify-between'>
+                        <Logo></Logo>
+                        <div className='inline-block'>
+                            <MenuButton
+                                onClick={() => {
+                                    toggleMenu();
+                                }}
+                                clicked={isMenuOpen}
+                            />
+                        </div>
+                    </div>
+
+                    {/* Nav menu */}
+                    <div
+                        className={`
+                        hidden
+                        ${isMenuOpen ? styles.navWrapperOpened : ''}`}
+                    >
+                        {renderNavigation(route)}
+                    </div>
+                </section>
+            </header>
+        );
     }
 
     return <div>{headerContent(getPathName())}</div>;

@@ -8,10 +8,9 @@
   "dependencies": {
     "@mdx-js/loader": "^2.2.1",
     "@mdx-js/react": "^2.2.1",
-    "@next/font": "^13.1.1",
     "@vercel/analytics": "^0.1.6",
     "gray-matter": "^4.0.3",
-    "next": "^13.0.7",
+    "next": "^13.4.2",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
     "sass": "^1.57.1",
@@ -20,6 +19,11 @@
   "devDependencies": {
     "@types/node": "18.11.17",
     "@types/react": "18.0.26",
-    "eslint-config-next": "^12.0.4"
+    "autoprefixer": "^10.4.14",
+    "eslint-config-next": "^13.4.2",
+    "postcss": "^8.4.23",
+    "prettier": "^2.8.8",
+    "prettier-plugin-tailwindcss": "^0.3.0",
+    "tailwindcss": "^3.3.2"
   }
 }

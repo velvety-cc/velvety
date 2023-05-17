@@ -1,6 +1,5 @@
 'use client';
 
-import styles from './header.module.scss';
 import NavButton from '../navigation/nav-button';
 import Logo from '../logo/logo';
 import MenuButton from '../navigation/menu-button';
@@ -8,7 +7,7 @@ import { usePathname } from 'next/navigation';
 import { useState } from 'react';
 
 export default function Header() {
-    // render a nav button given the name of the button and whether it's clicked
+    // Render a nav button given the name of the button and whether it's clicked
     function renderNavButton(buttonName: string, clicked = false) {
         const route = '/' + buttonName;
         const routeName =
@@ -22,7 +21,7 @@ export default function Header() {
         );
     }
 
-    //render the navigation
+    // Render the navigation
     function renderNavigation(route) {
         switch (route) {
             case '/':
@@ -82,9 +81,9 @@ export default function Header() {
     // return a correct Header component based on the route
     function headerContent(route) {
         return (
-            <header>
+            <header className='mt-16 sm:mt-44'>
                 {/* Desktop header */}
-                <section className='hidden sm:grid sm:w-full sm:grid-cols-3 md:gap-x-8 lg:gap-x-16'>
+                <section className='hidden sm:grid sm:w-full sm:grid-cols-3 sm:gap-x-8 lg:gap-x-16'>
                     <Logo></Logo>
                     <div className='col-span-1 col-start-3'>
                         {renderNavigation(route)}
@@ -109,10 +108,28 @@ export default function Header() {
                     {/* Nav menu */}
                     <div
                         className={`
-                        hidden
-                        ${isMenuOpen ? styles.navWrapperOpened : ''}`}
+                        fixed left-0 right-0 top-0 z-10 mx-8 h-full cursor-pointer bg-white pt-32 transition-opacity duration-300 ease-in-out
+                        ${
+                            isMenuOpen
+                                ? 'opacity-100'
+                                : 'pointer-events-none opacity-0'
+                        }`}
+                        onClick={() => {
+                            toggleMenu();
+                        }}
                     >
-                        {renderNavigation(route)}
+                        <div className='flex w-full flex-row items-center justify-between'>
+                            <Logo></Logo>
+                            <div className='inline-block'>
+                                <MenuButton
+                                    onClick={() => {
+                                        toggleMenu();
+                                    }}
+                                    clicked={isMenuOpen}
+                                />
+                            </div>
+                        </div>
+                        <div className='mt-16'>{renderNavigation(route)}</div>
                     </div>
                 </section>
             </header>

@@ -7,8 +7,8 @@ import { Metadata } from 'next';
 // Metadata
 export const metadata: Metadata = {
     title: {
-        template: '%s | Velvety',
-        default: 'Velvety',
+        template: '%s - Velvety',
+        default: 'Velvety - A Personal Archive',
     },
     description: 'A personal archive.',
     icons: { icon: '/icon.ico' },
@@ -48,7 +48,7 @@ export default function RootLayout({
     return (
         <html lang='en' className={inter.className}>
             <body>
-                <main className='mx-auto h-full max-w-[1088px] px-8 py-16 antialiased sm:px-16'>
+                <main className='mx-auto h-full max-w-7xl px-8 py-16 antialiased sm:px-16'>
                     {children}
                 </main>
                 <AnalyticsWrapper />

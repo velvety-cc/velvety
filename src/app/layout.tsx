@@ -1,5 +1,4 @@
 import { Inter } from 'next/font/google';
-import './global.scss';
 import './global.css';
 import { AnalyticsWrapper } from '../components/shared/analytics';
 import { Metadata } from 'next';

@@ -81,7 +81,7 @@ export default function Header() {
     // return a correct Header component based on the route
     function headerContent(route) {
         return (
-            <header className='mt-16 sm:mt-44'>
+            <header className='mt-8 sm:mt-44'>
                 {/* Desktop header */}
                 <section className='hidden sm:grid sm:w-full sm:grid-cols-3 sm:gap-x-8 lg:gap-x-16'>
                     <Logo></Logo>
@@ -91,24 +91,26 @@ export default function Header() {
                 </section>
 
                 {/* Mobile header */}
-                <section className='flex sm:hidden'>
+                <section className=' sm:hidden'>
                     {/* Nav bar */}
-                    <div className='flex w-full flex-row items-center justify-between'>
-                        <Logo></Logo>
-                        <div className='inline-block'>
-                            <MenuButton
-                                onClick={() => {
-                                    toggleMenu();
-                                }}
-                                clicked={isMenuOpen}
-                            />
+                    <div className='fixed left-0 right-0 top-0 z-10 bg-white/75  px-8 pb-4 pt-16 backdrop-blur'>
+                        <div className='flex w-full flex-row items-center justify-between'>
+                            <Logo></Logo>
+                            <div className='inline-block'>
+                                <MenuButton
+                                    onClick={() => {
+                                        toggleMenu();
+                                    }}
+                                    clicked={isMenuOpen}
+                                />
+                            </div>
                         </div>
                     </div>
 
                     {/* Nav menu */}
                     <div
                         className={`
-                        fixed left-0 right-0 top-0 z-10 mx-8 h-full cursor-pointer bg-white pt-32 transition-opacity duration-300 ease-in-out
+                        fixed left-0 right-0 top-0 z-10 h-full cursor-pointer bg-white px-8 pt-16 transition-opacity duration-300 ease-in-out
                         ${
                             isMenuOpen
                                 ? 'opacity-100'

@@ -116,8 +116,10 @@ export default function Header() {
                 <section className='sm:hidden'>
                     {/* Nav bar */}
                     <div
-                        className={`fixed left-0 right-0 top-0 z-10 bg-white/80 px-8 pt-16 backdrop-blur transition duration-200 ease-in-out ${
-                            isShrunk ? '-translate-y-8 pb-2 shadow-sm' : 'pb-4'
+                        className={`fixed left-0 right-0 top-0 z-10 bg-white/80 px-8 backdrop-blur transition duration-200 ease-in-out ${
+                            isShrunk
+                                ? '-translate-y-8 pb-2 pt-12 shadow-sm'
+                                : 'pb-4 pt-16'
                         }`}
                     >
                         <div className='flex w-full flex-row items-center justify-between'>
@@ -136,11 +138,11 @@ export default function Header() {
                     {/* Nav menu */}
                     <div
                         className={`
-                        fixed left-0 right-0 top-0 z-10 h-full cursor-pointer bg-white px-8 pt-16 transition-all duration-300 ease-in-out
+                        fixed left-0 right-0 top-0 z-10 h-full cursor-pointer bg-white px-8 pt-16  transition-all duration-300 ease-in-out
                         ${
                             isMenuOpen
                                 ? 'opacity-100'
-                                : 'pointer-events-none opacity-0'
+                                : 'pointer-events-none  opacity-0'
                         }
                         `}
                         onClick={() => {
@@ -149,7 +151,7 @@ export default function Header() {
                     >
                         <div
                             className={`flex w-full flex-row items-center justify-between transition duration-300 ease-in-out ${
-                                isShrunk ? '-translate-y-8' : ''
+                                isShrunk ? '-translate-y-12' : ''
                             }`}
                         >
                             <Logo></Logo>

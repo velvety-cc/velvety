@@ -9,7 +9,7 @@ export default function Page() {
             <Header></Header>
 
             {/* Content container */}
-            <div className='flex flex-col gap-y-16 pb-16 sm:grid sm:grid-cols-3 sm:gap-x-8 sm:pb-32 lg:gap-x-16'>
+            <div className='mt-8 flex flex-col gap-y-16 pb-16 sm:mt-0 sm:grid sm:grid-cols-3 sm:gap-x-8 sm:pb-32 lg:gap-x-16'>
                 {/* Biography */}
                 <div className='flex flex-col gap-y-8 sm:col-span-2 sm:col-start-1'>
                     <div className='text-2xl font-medium text-slate-950'>

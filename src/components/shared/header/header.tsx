@@ -116,7 +116,7 @@ export default function Header() {
                 <section className='sm:hidden'>
                     {/* Nav bar */}
                     <div
-                        className={`fixed left-0 right-0 top-0 z-10 bg-white/80 px-8 backdrop-blur transition duration-200 ease-in-out ${
+                        className={`fixed left-0 right-0 top-0 z-10 bg-white/80 px-8 backdrop-blur transition duration-300 ease-in-out ${
                             isShrunk
                                 ? '-translate-y-8 pb-2 pt-12 shadow-sm'
                                 : 'pb-4 pt-16'

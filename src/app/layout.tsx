@@ -47,7 +47,7 @@ export default function RootLayout({
     return (
         <html lang='en' className={inter.className}>
             <body>
-                <main className='mx-auto h-full max-w-7xl px-8 py-16 antialiased sm:px-16'>
+                <main className='mx-auto h-full max-w-7xl scroll-smooth px-8 py-16 antialiased sm:px-16'>
                     {children}
                 </main>
                 <AnalyticsWrapper />

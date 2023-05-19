@@ -3,13 +3,18 @@ import styles from './writting-entry-button.module.scss';
 
 export default function WritingEntryButton(props) {
     return (
-        <div className={styles.writingEntryButton}>
-            <Link href={props.link} className={styles.title}>
+        <div className='group flex cursor-pointer flex-col gap-y-1'>
+            <Link
+                href={props.link}
+                className='w-fit -translate-x-[6px] px-[6px] py-1 text-base font-semibold text-slate-950 transition duration-200 group-hover:rounded-md group-hover:bg-neutral-100'
+            >
                 {props.title}
             </Link>
-            <div className={styles.description}>
+            <div className='text-base font-normal text-slate-950'>
                 {truncateDescription(props.description)}
-                <span className={styles.date}>{truncateDate(props.date)}</span>
+                <span className='text-neutral-400'>
+                    {truncateDate(props.date)}
+                </span>
             </div>
         </div>
     );

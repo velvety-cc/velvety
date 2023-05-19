@@ -15,6 +15,7 @@ export default function Page() {
                     <div className='text-2xl font-medium text-slate-950'>
                         Biography
                     </div>
+
                     <div>
                         <p className='mb-0 mt-0 text-base font-normal text-slate-950'>
                             Liam Zhang is the Co-Founder and Chief Product

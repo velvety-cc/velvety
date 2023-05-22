@@ -1,6 +1,6 @@
 import Link from 'next/link';
-import Header from '../../components/shared/header/header';
-import ExternalLinks from '../../components/shared/external-links/external-links';
+import Header from '../../components/header/header';
+import ExternalLinks from '../../components/external-links/external-links';
 import { Metadata } from 'next';
 
 // Metadata

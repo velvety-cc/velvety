@@ -46,6 +46,16 @@ export function getPostData(slug) {
     };
 }
 
+export function formatDate(dateString) {
+    const dateObj = new Date(dateString);
+    const formattedDate = dateObj.toLocaleDateString('en-US', {
+        month: 'long',
+        day: 'numeric',
+        year: 'numeric',
+    });
+    return formattedDate;
+}
+
 export function getAllPosts() {
     const slugs = getSlugsFromFolder().map((slug) => getPostData(slug));
 

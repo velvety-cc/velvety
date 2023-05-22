@@ -25,7 +25,8 @@
         ".next/types/**/*.ts",
         "**/*.ts",
         "**/*.tsx",
-        "src/components/shared/logo/logo.jsx"
+        "src/components/shared/logo/logo.jsx",
+        "src/components/content/mdx-remote.jsx"
     ],
     "exclude": ["node_modules"]
 }

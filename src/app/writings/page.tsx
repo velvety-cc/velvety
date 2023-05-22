@@ -1,6 +1,6 @@
-import Header from '../../components/shared/header/header';
+import Header from '../../components/header/header';
 import { getYearArray } from '../../api/writtingsAPI';
-import YearGroup from '../../components/shared/group/year-group';
+import YearGroup from '../../components/group/year-group';
 import { Metadata } from 'next';
 
 // Metadata

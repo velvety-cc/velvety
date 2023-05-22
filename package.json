@@ -6,17 +6,19 @@
     "start": "next start"
   },
   "dependencies": {
-    "@mdx-js/loader": "^2.2.1",
-    "@mdx-js/react": "^2.2.1",
+    "@mdx-js/loader": "^2.3.0",
+    "@mdx-js/react": "^2.3.0",
+    "@next/mdx": "^13.4.3",
+    "@types/mdx": "^2.0.5",
     "@vercel/analytics": "^0.1.6",
     "gray-matter": "^4.0.3",
     "next": "^13.4.2",
+    "next-mdx-remote": "^4.4.1",
     "react": "^18.2.0",
-    "react-dom": "^18.2.0",
-    "sass": "^1.57.1",
-    "scss": "^0.2.4"
+    "react-dom": "^18.2.0"
   },
   "devDependencies": {
+    "@tailwindcss/typography": "^0.5.9",
     "@types/node": "18.11.17",
     "@types/react": "18.0.26",
     "autoprefixer": "^10.4.14",

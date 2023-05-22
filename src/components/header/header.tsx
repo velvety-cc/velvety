@@ -1,8 +1,8 @@
 'use client';
 
-import NavButton from '../navigation/nav-button';
-import Logo from '../logo/logo';
-import MenuButton from '../navigation/menu-button';
+import NavButton from './navigation/nav-button';
+import Logo from './logo/logo';
+import MenuButton from './navigation/menu-button';
 import { usePathname } from 'next/navigation';
 import { useState, useEffect } from 'react';
 

@@ -33,7 +33,7 @@ export default function Page() {
                         <p className='mb-0 mt-6 text-base font-normal text-slate-950'>
                             Previously, Liam worked at{' '}
                             <Link
-                                href='https://ngc.fund/home'
+                                href='https://ngc.fund/'
                                 target='_blank'
                                 className='text-base font-normal text-slate-950 underline decoration-neutral-400 underline-offset-4 duration-200 hover:decoration-slate-950'
                             >

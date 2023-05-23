@@ -3,6 +3,7 @@
 const nextConfig = {
     experimental: {
         appDir: true,
+        serverComponentsExternalPackages: ['shiki', 'vscode-oniguruma'],
     },
     // Configure pageExtensions to include md and mdx
     pageExtensions: ['ts', 'tsx', 'js', 'jsx', 'md', 'mdx'],

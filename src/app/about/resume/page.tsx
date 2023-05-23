@@ -136,7 +136,7 @@ export default function ResumePage() {
                             'Investor and Researcher',
                             'NGC Ventures',
                             true,
-                            'https://ngc.fund',
+                            'https://ngc.fund/',
                             '2020 - 2021',
                             'Conducted research and investment on decentralized finance and infrastructure projects.'
                         )}

@@ -14,7 +14,7 @@ interface postFrontMatter {
     title: string;
     slug: string;
     tags: string[];
-    date: string;
+    date: Date;
     description: string;
 }
 
@@ -39,16 +39,16 @@ export function getPostData(slug) {
             title: data.title ?? slug,
             slug,
             tags: (data.tags ?? []).sort(),
-            date: (data.date ?? new Date()).toString(),
+            date: new Date(data.date) ?? new Date(),
             description: data.description ?? '',
         },
         content,
     };
 }
 
-export function formatDate(dateString) {
-    const dateObj = new Date(dateString);
+export function formatDate(dateObj) {
     const formattedDate = dateObj.toLocaleDateString('en-US', {
+        timeZone: 'UTC',
         month: 'long',
         day: 'numeric',
         year: 'numeric',
@@ -65,10 +65,8 @@ export function getAllPosts() {
 export function sortPostByDate(postArray) {
     // decending order, newest post at the top
     return postArray.sort((a, b) => {
-        if (new Date(a.frontMatter.date) > new Date(b.frontMatter.date))
-            return -1;
-        if (new Date(a.frontMatter.date) < new Date(b.frontMatter.date))
-            return 1;
+        if (a.frontMatter.date > b.frontMatter.date) return -1;
+        if (a.frontMatter.date < b.frontMatter.date) return 1;
         return 0;
     });
 }
@@ -78,7 +76,7 @@ export function getPostByYear(year) {
     const postsSorted = sortPostByDate(posts);
 
     const yearPost = postsSorted.filter((post) => {
-        const postYear = new Date(post.frontMatter.date).getFullYear();
+        const postYear = post.frontMatter.date.getFullYear();
         return postYear === year;
     });
 
@@ -92,7 +90,7 @@ export function getYearArray() {
 
     // extract year
     const yearArrayWithDeplicates = postFrontMatter.map((post) =>
-        new Date(post.date).getFullYear()
+        post.date.getFullYear()
     );
 
     // delete duplicates

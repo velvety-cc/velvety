@@ -28,9 +28,9 @@ export default function WritingEntry({ params }: { params: { slug: string } }) {
     const { frontMatter, content } = getPostData(slug);
 
     return (
-        <div className='mx-auto max-w-[630px] sm:mt-32'>
-            <div className='flex flex-col gap-y-8'>
-                <div className='font-serif text-base font-normal italic text-slate-950'>
+        <div className='mx-auto max-w-[630px] pb-32'>
+            <div className='flex flex-col gap-y-16'>
+                <div className='mb-20 font-serif text-base font-normal italic  text-slate-950'>
                     <Link
                         href='/writings'
                         className='text-base font-normal text-slate-950'
@@ -51,7 +51,19 @@ export default function WritingEntry({ params }: { params: { slug: string } }) {
                     </div>
                 </div>
 
-                <div className='prose'>
+                {/* Article */}
+                <div
+                    className='
+                    prose
+                    prose-headings:font-serif
+                    prose-headings:font-normal prose-p:text-slate-950 prose-a:font-normal prose-a:text-slate-950 prose-a:underline prose-a:decoration-neutral-400 prose-a:underline-offset-4 prose-a:duration-200 hover:prose-a:decoration-slate-950 
+                    prose-code:font-normal prose-code:text-slate-950
+                    prose-pre:bg-neutral-200 prose-pre:shadow-sm
+                    prose-ol:text-slate-950 marker:prose-ol:text-neutral-600 prose-ul:text-slate-950 
+                    marker:prose-ul:text-neutral-600 
+                    prose-img:rounded-md prose-img:border-solid prose-img:border-slate-950 prose-img:p-1
+                    prose-img:shadow-sm'
+                >
                     <CustomMDX source={content} />
                 </div>
             </div>

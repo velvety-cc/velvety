@@ -9,8 +9,8 @@ import Image from 'next/image';
 import BackArrow from '../../../../public/back-arrow.svg';
 
 // Metadata
-export async function generateMetadata({ params }) {
-    const { slug } = params;
+export async function generateMetadata({ params }: { params: Promise<{ slug: string }> }) {
+    const { slug } = await params;
     const { frontMatter } = getPostData(slug);
 
     return {
@@ -23,8 +23,8 @@ export async function generateStaticParams() {
     return posts;
 }
 
-export default function WritingEntry({ params }: { params: { slug: string } }) {
-    const { slug } = params;
+export default async function WritingEntry({ params }: { params: Promise<{ slug: string }> }) {
+    const { slug } = await params;
     const { frontMatter, content } = getPostData(slug);
 
     return (

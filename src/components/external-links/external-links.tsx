@@ -1,4 +1,3 @@
-import styles from './external-links.module.scss';
 import Link from 'next/link';
 
 function renderLinkItem(href, name) {
@@ -22,28 +21,13 @@ export default function ExternalLinks() {
             <ul className='list-none'>
                 <li>
                     {renderLinkItem(
-                        'https://twitter.com/imliamzhang',
-                        'Twitter'
-                    )}
-                </li>
-                <li className='mt-1'>
-                    {renderLinkItem('https://github.com/imliamzhang', 'GitHub')}
-                </li>
-                <li className='mt-1'>
-                    {renderLinkItem(
-                        'https://www.instagram.com/imliamzhang/',
-                        'Instagram'
-                    )}
-                </li>
-                <li className='mt-1'>
-                    {renderLinkItem(
-                        'https://www.linkedin.com/in/imliamzhang/',
-                        'LinkedIn'
+                        'https://x.com/velvety_cc',
+                        'X'
                     )}
                 </li>
                 <li className='mt-1'>
                     <Link
-                        href='mailto: imliamzhang@gmail.com'
+                        href='mailto: liam@velvety.cc'
                         className='text-base font-normal text-slate-950'
                     >
                         {'>'} Email

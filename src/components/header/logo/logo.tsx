@@ -8,7 +8,7 @@ export default function Logo() {
                     VELVETY
                 </div>
                 <div className='ml-px inline-block w-fit text-base font-semibold text-slate-950 group-hover:cursor-pointer'>
-                    &copy; 2023
+                    &copy; {new Date().getFullYear()}
                 </div>
             </Link>
         </div>

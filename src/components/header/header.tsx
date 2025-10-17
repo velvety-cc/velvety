@@ -7,7 +7,6 @@ import { usePathname } from 'next/navigation';
 import { useState, useEffect } from 'react';
 
 export default function Header() {
-    // Render a nav button given the name of the button and whether it's clicked
     function renderNavButton(buttonName: string, clicked = false) {
         const route = '/' + buttonName;
         const routeName =

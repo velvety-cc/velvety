@@ -1,7 +1,13 @@
 "use client";
 
-import { useState, useEffect, useMemo } from "react";
+import { useState } from "react";
 import { usePathname } from "next/navigation";
+import {
+  motion,
+  useScroll,
+  useTransform,
+  AnimatePresence,
+} from "framer-motion";
 import NavButton from "./navigation/nav-button";
 import Logo from "./logo/logo";
 import MenuButton from "./navigation/menu-button";
@@ -15,39 +21,21 @@ const NAV_LINKS = [
 export default function Header() {
   const pathname = usePathname();
   const [isMenuOpen, setIsMenuOpen] = useState(false);
-  const [scrollY, setScrollY] = useState(0);
 
-  // Toggle menu helper
-  const toggleMenu = () => setIsMenuOpen((prev) => !prev);
+  // 1. Hook into the scroll progress
+  const { scrollY } = useScroll();
 
-  // Scroll listener for animations
-  useEffect(() => {
-    const onScroll = () => {
-      window.requestAnimationFrame(() => setScrollY(window.scrollY));
-    };
-    window.addEventListener("scroll", onScroll, { passive: true });
-    return () => window.removeEventListener("scroll", onScroll);
-  }, []);
-
-  // Calculate scroll-based styles
-  const scrollProgress = Math.min(Math.max(scrollY / 12, 0), 1);
-  const paddingTop = 64 - scrollProgress * 16;
-  const paddingBottom = 16 - scrollProgress * 8;
-  const translateY = -32 * scrollProgress;
-
-  // Shared Navigation List Component
-  const NavigationList = () => (
-    <ul className="grid list-none grid-cols-1 gap-y-7">
-      {NAV_LINKS.map((link) => (
-        <NavButton
-          key={link.href}
-          route={link.href}
-          routeName={link.name}
-          // Matches if current path starts with the link href (e.g., /about/team matches /about)
-          clicked={pathname.startsWith(link.href)}
-        />
-      ))}
-    </ul>
+  // 2. Transform scroll values into style values (0px to 50px scroll range)
+  const headerY = useTransform(scrollY, [0, 50], [0, -32]);
+  const headerPadding = useTransform(
+    scrollY,
+    [0, 50],
+    ["64px 32px 16px", "48px 32px 8px"]
+  );
+  const headerShadow = useTransform(
+    scrollY,
+    [0, 20],
+    ["rgba(0,0,0,0)", "rgba(0,0,0,0.05)"]
   );
 
   return (
@@ -56,50 +44,68 @@ export default function Header() {
       <section className="hidden sm:grid sm:w-full sm:grid-cols-3 sm:gap-x-8 lg:gap-x-16">
         <Logo />
         <div className="col-span-1 col-start-3">
-          <NavigationList />
+          <ul className="grid list-none grid-cols-1 gap-y-7">
+            {NAV_LINKS.map((link) => (
+              <NavButton
+                key={link.href}
+                route={link.href}
+                routeName={link.name}
+                clicked={pathname.startsWith(link.href)}
+              />
+            ))}
+          </ul>
         </div>
       </section>
 
       {/* Mobile Header */}
       <section className="sm:hidden">
-        {/* Sticky Top Bar */}
-        <div
-          className={`fixed left-0 right-0 top-0 z-10 bg-white/80 px-8 backdrop-blur transition-all duration-200 ease-out ${
-            scrollProgress > 0.5 ? "shadow-sm" : ""
-          }`}
+        {/* Animated Sticky Bar */}
+        <motion.div
           style={{
-            paddingTop: `${paddingTop}px`,
-            paddingBottom: `${paddingBottom}px`,
-            transform: `translateY(${translateY}px)`,
+            y: headerY,
+            padding: headerPadding,
+            boxShadow: headerShadow,
           }}
+          className="fixed inset-x-0 top-0 z-20 bg-white/80 backdrop-blur-md"
         >
-          <div className="flex w-full flex-row items-center justify-between">
+          <div className="flex items-center justify-between">
             <Logo />
-            <MenuButton onClick={toggleMenu} clicked={isMenuOpen} />
+            <MenuButton
+              onClick={() => setIsMenuOpen(!isMenuOpen)}
+              clicked={isMenuOpen}
+            />
           </div>
-        </div>
+        </motion.div>
 
-        {/* Fullscreen Mobile Menu Overlay */}
-        <div
-          className={`fixed inset-0 z-10 cursor-pointer bg-white px-8 pt-16 transition-all duration-300 ease-in-out ${
-            isMenuOpen ? "opacity-100" : "pointer-events-none opacity-0"
-          }`}
-          onClick={toggleMenu}
-        >
-          <div
-            className="flex w-full flex-row items-center justify-between transition-transform duration-200 ease-out"
-            style={{ transform: `translateY(${translateY - 16}px)` }}
-          >
-            <Logo />
-            <MenuButton onClick={toggleMenu} clicked={isMenuOpen} />
-          </div>
-          <div
-            className="mt-16 transition-transform duration-200 ease-out"
-            style={{ transform: `translateY(${translateY}px)` }}
-          >
-            <NavigationList />
-          </div>
-        </div>
+        {/* Smooth Fullscreen Menu */}
+        <AnimatePresence>
+          {isMenuOpen && (
+            <motion.div
+              initial={{ opacity: 0, y: -10 }}
+              animate={{ opacity: 1, y: 0 }}
+              exit={{ opacity: 0, y: -10 }}
+              transition={{ type: "spring", stiffness: 300, damping: 30 }}
+              className="fixed inset-0 z-10 bg-white px-8 pt-32"
+            >
+              <ul className="grid gap-y-8">
+                {NAV_LINKS.map((link) => (
+                  <motion.li
+                    key={link.href}
+                    initial={{ opacity: 0, x: -10 }}
+                    animate={{ opacity: 1, x: 0 }}
+                    transition={{ delay: 0.1 }}
+                  >
+                    <NavButton
+                      route={link.href}
+                      routeName={link.name}
+                      clicked={pathname.startsWith(link.href)}
+                    />
+                  </motion.li>
+                ))}
+              </ul>
+            </motion.div>
+          )}
+        </AnimatePresence>
       </section>
     </header>
   );
